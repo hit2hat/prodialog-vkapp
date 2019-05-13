@@ -9,7 +9,7 @@ const osname = platform();
 
 const Transaction = ({ id, back, transaction }) => {
     let date = new Date();
-    date.setTime(transaction.time * 1000);
+    date.setTime((transaction.time || 0) * 1000);
     return (
         <Panel id={id}>
             <PanelHeader
@@ -35,7 +35,7 @@ const Transaction = ({ id, back, transaction }) => {
                 <CellButton
                     align="center"
                     style={{borderTop: '5px solid var(--background_page)'}}
-                    onClick={() => connect.send("VKWebAppShare", {"link": "https://vk.com/app6982755#transaction" + transaction.id})}
+                    onClick={() => connect.send("VKWebAppShare", {"link": "https://vk.com/app6982755#transactionId=" + transaction.id})}
                 >
                     Поделиться
                 </CellButton>

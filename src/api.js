@@ -15,3 +15,8 @@ export const getProfile = (id) => {
     return fetch(api_endpoint + "getProfile&user=" + id)
         .then((result) => result.json());
 };
+
+export const getTransactionById = (id) => {
+    return fetch(api_endpoint + "getTransaction&id=" + id)
+        .then((result) => result.json())
+};

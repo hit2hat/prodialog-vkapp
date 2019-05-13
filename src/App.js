@@ -6,9 +6,23 @@ import Home from "./containers/Home";
 import Profile from "./containers/Profile";
 import Transaction from "./containers/Transaction";
 
-const App = ({ activePanel, history, goForward, goBack, user, userLoad, transactions, transactionSelect }) => {
+const getObjectUrlString = (string) => {
+	let search = string;
+	return search === "" ? null : search.split("&").reduce((prev, curr) => {
+		const [key, value] = curr.split("=");
+		prev[decodeURIComponent(key)] = decodeURIComponent(value);
+		return prev;
+	}, {});
+};
+
+const App = ({ activePanel, history, goForward, goBack, user, userLoad, transactions, transactionSelect, selectSingleTransaction }) => {
 	useEffect(() => {
 		userLoad();
+		const params = getObjectUrlString(window.location.hash.replace("#", ""));
+		if(params && params["transactionId"]) {
+			selectSingleTransaction(params["transactionId"]);
+			goForward("transaction");
+		}
 	}, [userLoad]);
 	return (
 		<ConfigProvider isWebView={true}>
@@ -19,7 +33,7 @@ const App = ({ activePanel, history, goForward, goBack, user, userLoad, transact
 			>
 				<Home id="home" user={user} go={goForward} transactions={transactions.list} transactionSelect={transactionSelect}/>
 				<Profile id="profile" back={goBack} />
-				<Transaction id="transaction" back={goBack} transaction={transactions.list[transactions.selected]} />
+				<Transaction id="transaction" back={goBack} transaction={transactions.selected} />
 			</View>
 		</ConfigProvider>
 	);
@@ -32,11 +46,12 @@ const mapProps = (state) => ({
 	transactions: state.transactions
 });
 
-const mapDispatch = ({ navigator: { goForward, goBack }, user, transactions: { select } }) => ({
+const mapDispatch = ({ navigator: { goForward, goBack }, user, transactions: { select, selectSingleTransaction } }) => ({
 	goForward,
 	goBack,
 	userLoad: user.load,
-	transactionSelect: select
+	transactionSelect: select,
+	selectSingleTransaction
 });
 
 export default connect(mapProps, mapDispatch)(App);

@@ -49,7 +49,7 @@ const Home = ({ id, user, go, transactions, transactionSelect }) => (
 						before={<Avatar style={{ background: 'var(--accent)' }} size={28}><Icon16Add fill="var(--white)" /></Avatar>}
 						description={"Комментарий: " + op.reason}
 						onClick={() => {
-							transactionSelect(key);
+							transactionSelect(op);
 							go("transaction");
 						}}
 					>

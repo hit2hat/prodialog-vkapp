@@ -7,7 +7,7 @@ const transactions = {
     },
     reducers: {
         loaded(state, payload) {
-            return { list: payload, selected: 0 };
+            return {...state, list: payload };
         },
         select(state, payload) {
             return {...state, selected: payload};
@@ -17,6 +17,10 @@ const transactions = {
         async load(id){
             const result = await api.getTransactions(id);
             dispatch.transactions.loaded(result);
+        },
+        async selectSingleTransaction(id) {
+            const result = await api.getTransactionById(id);
+            dispatch.transactions.select(result);
         }
     })
 };

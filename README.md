@@ -1,2 +1,1 @@
-# prodialog-vkapp
-ProDialog VK App
+# ProDialog VK App

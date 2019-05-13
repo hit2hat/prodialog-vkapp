@@ -12,18 +12,18 @@ const navigator = {
             return {active: payload, history: [...state.history, payload]}
         },
         back(state) {
-            return {active: state.history[state.history.length - 2], history: history.slice(0, history.length - 1)}
+            return {active: state.history[state.history.length - 2], history: state.history.slice(0, state.history.length - 1)}
         }
     },
     effects: (dispatch) => ({
         goForward(panel, state) {
-            if(state.active === homeView) {
-                vkuiConnect.send('VKWebAppEnableSwipeBack', {});
+            if(state.navigator.active === homeView) {
+                connect.send('VKWebAppEnableSwipeBack', {});
             }
             dispatch.navigator.go(panel);
         },
         goBack(payload, state) {
-            if(state.history[state.history.length - 2] === homeView) {
+            if(state.navigator.history[state.navigator.history.length - 2] === homeView) {
                 connect.send('VKWebAppDisableSwipeBack', {});
             }
             dispatch.navigator.back();

@@ -1,4 +1,4 @@
-const api_endpoint = "http://terminal.viren.ru/api.php?action=";
+const api_endpoint = "https://terminal.viren.ru/api.php?action=";
 
 export const getTop = () => {
     return fetch(api_endpoint + "getTop")

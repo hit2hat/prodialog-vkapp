@@ -1,8 +1,13 @@
 import { init } from "@rematch/core";
+
 import navigator from "./navigator";
+import user from "./user";
+import transactions from "./transactions";
 
 const models = {
-    navigator
+    navigator,
+    user,
+    transactions
 };
 
 const store = init({

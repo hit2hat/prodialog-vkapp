@@ -35,7 +35,7 @@ const Transaction = ({ id, back, transaction }) => {
                 <CellButton
                     align="center"
                     style={{borderTop: '5px solid var(--background_page)'}}
-                    onClick={() => connect.send("VKWebAppShare", {"message": "https://vk.com/app6982755#transaction"})}
+                    onClick={() => connect.send("VKWebAppShare", {"link": "https://vk.com/app6982755#transaction" + transaction.id})}
                 >
                     Поделиться
                 </CellButton>

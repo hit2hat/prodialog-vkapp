@@ -6,8 +6,6 @@ import '@vkontakte/vkui/dist/vkui.css';
 import Home from "./containers/Home";
 import Profile from "./containers/Profile";
 
-import * as api from './api';
-
 class App extends React.Component {
 	constructor(props) {
 		super(props);
@@ -21,8 +19,7 @@ class App extends React.Component {
 
 	componentDidMount() {
 		connect.send('VKWebAppGetUserInfo', {})
-			.then((data) => this.setState({ fetchedUser: data.data }))
-			.catch((err) => null);
+			.then((data) => this.setState({ fetchedUser: data.data }));
 	}
 
 	go(activePanel) {

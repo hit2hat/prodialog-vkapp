@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { connect } from "react-redux";
 import { Panel, Cell, Group, Avatar, PanelHeader, CellButton } from '@vkontakte/vkui';
 
 import Icon16Add from '@vkontakte/icons/dist/16/add';
@@ -61,28 +61,14 @@ const Home = ({ id, user, go, transactions, transactionSelect }) => (
 	</Panel>
 );
 
-Home.propTypes = {
-	id: PropTypes.string.isRequired,
-	user: PropTypes.shape({
-		photo_200: PropTypes.string,
-		first_name: PropTypes.string,
-		last_name: PropTypes.string,
-		city: PropTypes.shape({
-			title: PropTypes.string,
-		}),
-	}),
-};
+const mapProps = (state) => ({
+	user: state.user,
+	transactions: state.transactions.list
+});
 
-Home.defaultProps = {
-	id: "1",
-	user: {
-		photo_200: "https://sun1-23.userapi.com/c850632/v850632751/1099c4/qw3BsBsm7OU.jpg?ava=1",
-		first_name: "Степан",
-		last_name: "Новожилов",
-		city: {
-			title: "Рыбинск"
-		}
-	}
-};
+const mapDispatch = ({ navigator: { goForward }, transactions: { select } }) => ({
+	go: goForward,
+	transactionSelect: select
+});
 
-export default Home;
+export default connect(mapProps, mapDispatch)(Home);

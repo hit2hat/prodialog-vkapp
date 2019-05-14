@@ -15,7 +15,7 @@ const getObjectUrlString = (string) => {
 	}, {});
 };
 
-const App = ({ activePanel, history, goForward, goBack, user, userLoad, transactions, transactionSelect, selectSingleTransaction }) => {
+const App = ({ activePanel, history, goForward, goBack, userLoad, transactions, selectSingleTransaction }) => {
 	useEffect(() => {
 		userLoad();
 		const params = getObjectUrlString(window.location.hash.replace("#", ""));
@@ -31,7 +31,7 @@ const App = ({ activePanel, history, goForward, goBack, user, userLoad, transact
 				history={history}
 				onSwipeBack={goBack}
 			>
-				<Home id="home" user={user} go={goForward} transactions={transactions.list} transactionSelect={transactionSelect}/>
+				<Home id="home"/>
 				<Profile id="profile" back={goBack} />
 				<Transaction id="transaction" back={goBack} transaction={transactions.selected} />
 			</View>
@@ -42,15 +42,13 @@ const App = ({ activePanel, history, goForward, goBack, user, userLoad, transact
 const mapProps = (state) => ({
 	activePanel: state.navigator.active,
 	history: state.navigator.history,
-	user: state.user,
 	transactions: state.transactions
 });
 
-const mapDispatch = ({ navigator: { goForward, goBack }, user, transactions: { select, selectSingleTransaction } }) => ({
+const mapDispatch = ({ navigator: { goForward, goBack }, user, transactions: { selectSingleTransaction } }) => ({
 	goForward,
 	goBack,
 	userLoad: user.load,
-	transactionSelect: select,
 	selectSingleTransaction
 });
 

@@ -19,7 +19,7 @@ action "Deploy" {
   needs = ["Build"]
   env = {
     BRANCH = "gh-pages"
-    FOLDER = "styleguide"
+    FOLDER = "build"
   }
   secrets = ["ACCESS_TOKEN"]
 }

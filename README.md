@@ -15,11 +15,11 @@ VK App for ProDialog
 *   VK UI
 *   VK Connect / VK Connect Promise
 
-## How to run staging?
+## How to run
 *   Clone repo
 *   `yarn` or `npm install`
 *   `yarn start` or `npm start`
-*   Your staging will be launch on `127.0.0.1:10888`
+*   Your copy will be launch on `127.0.0.1:10888`
 
 ## Links
 *   [Official app in VK](https://vk.com/app6982755)

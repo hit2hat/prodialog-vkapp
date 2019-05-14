@@ -11,6 +11,9 @@ const transactions = {
         },
         select(state, payload) {
             return {...state, selected: payload};
+        },
+        reset() {
+            return { list: [], selected: 0 };
         }
     },
     effects: (dispatch) => ({

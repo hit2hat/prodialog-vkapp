@@ -14,9 +14,9 @@ const user = {
     effects: (dispatch) => ({
         async load() {
             const result = await connect.send("VKWebAppGetUserInfo", {});
-            dispatch.user.loaded(result.data);
-            dispatch.user.loadProfile(result.data.id);
-            dispatch.transactions.load(result.data.id);
+            await dispatch.user.loaded(result.data);
+            await dispatch.user.loadProfile(result.data.id);
+            await dispatch.transactions.load(result.data.id);
             dispatch.top.load();
         },
         async loadProfile(id) {

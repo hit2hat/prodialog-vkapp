@@ -31,7 +31,7 @@ const Transaction = ({ id, back, transaction }) => {
                             size={120}
                         />
                     </div>
-                    <h3 style={{marginBottom: 0}}>Перевод {transaction.send ? "для" : "от"} {transaction.first_name}</h3>
+                    <h3 style={{marginBottom: 0}}>Карма {transaction.send ? "для" : "от"} {transaction.first_name}</h3>
                 </div>
                 <CellButton
                     align="center"

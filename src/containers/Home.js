@@ -49,7 +49,7 @@ const Home = ({ id, user, go, transactions, transactionSelect }) => (
 							}
 							description={"Сумма: " + op.carma}
 						>
-							Перевод от ProDialog
+							Подарок от ProDialog
 						</Cell>
 					);
 				}
@@ -72,7 +72,7 @@ const Home = ({ id, user, go, transactions, transactionSelect }) => (
 							go("transaction");
 						}}
 					>
-						Перевод {op.send ? "для" : "от"} {op.first_name}
+						Карма {op.send ? "для" : "от"} {op.first_name}
 					</Cell>
 				);
 			}) : <Spinner size="medium" style={{ marginTop: 20, paddingBottom: 20 }} />}

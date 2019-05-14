@@ -43,7 +43,7 @@ const Home = ({ id, user, go, transactions, transactionSelect }) => (
 						<Cell
 							key={key}
 							before={
-								<Avatar style={{ background: "var(--text_primary)" }} size={28}>
+								<Avatar style={{ background: "black" }} size={28}>
 									<Icon16Gift fill="var(--white)" />
 								</Avatar>
 							}
@@ -58,7 +58,7 @@ const Home = ({ id, user, go, transactions, transactionSelect }) => (
 						key={key}
 						expandable
 						before={
-							<Avatar style={{ background: op.send ? "var(--accent)" : op.type === "+" ? "var(--button_commerce_background)" : "var(--destructive)" }} size={28}>
+							<Avatar style={{ background: op.send ? "#528bcc" : op.type === "+" ? "#4bb34b" : "#e64646" }} size={28}>
 								<div style={{ transform: op.send ? "rotate(45deg)" : "rotate(225deg)" }}>
 									<Icon24Back
 										fill="var(--white)"

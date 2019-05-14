@@ -52,7 +52,7 @@ const Transaction = ({ id, back, transaction }) => {
                 title="Сумма"
             >
                 <div style={{marginLeft: 12, paddingBottom: 15}}>
-                    <span style={{color: transaction.type === "+" ? "var(--button_commerce_background)" : "var(--destructive)"}}>{transaction.carma}</span>
+                    <span style={{color: transaction.type === "+" ? "#4bb34b" : "#e64646"}}>{transaction.carma}</span>
                 </div>
             </Group>
             <Group

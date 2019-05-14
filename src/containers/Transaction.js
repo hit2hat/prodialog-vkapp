@@ -1,5 +1,6 @@
 import React from "react";
-import connect from "@vkontakte/vkui-connect-promise";
+import { connect } from "react-redux";
+import VKConnect from "@vkontakte/vkui-connect-promise";
 import {Panel, Group, Avatar, PanelHeader, CellButton, HeaderButton, platform, IOS} from '@vkontakte/vkui';
 
 import Icon28ChevronBack from "@vkontakte/icons/dist/28/chevron_back";
@@ -35,7 +36,7 @@ const Transaction = ({ id, back, transaction }) => {
                 <CellButton
                     align="center"
                     style={{borderTop: '5px solid var(--background_page)'}}
-                    onClick={() => connect.send("VKWebAppShare", {"link": "https://vk.com/app6982755#transactionId=" + transaction.id})}
+                    onClick={() => VKConnect.send("VKWebAppShare", {"link": "https://vk.com/app6982755#transactionId=" + transaction.id})}
                 >
                     Поделиться
                 </CellButton>
@@ -63,4 +64,12 @@ const Transaction = ({ id, back, transaction }) => {
     );
 };
 
-export default Transaction;
+const mapProps = (state) => ({
+    transaction: state.transactions.selected
+});
+
+const mapDispatch = ({ navigator: { goBack } }) => ({
+    back: goBack
+});
+
+export default connect(mapProps, mapDispatch)(Transaction);

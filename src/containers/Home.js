@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import { Panel, Cell, Group, Avatar, PanelHeader, CellButton } from '@vkontakte/vkui';
 
-import Icon16Add from '@vkontakte/icons/dist/16/add';
+import Icon16Back from '@vkontakte/icons/dist/24/back';
 import Icon16Like from '@vkontakte/icons/dist/16/like';
 
 const Home = ({ id, user, go, transactions, transactionSelect }) => (
@@ -35,7 +35,11 @@ const Home = ({ id, user, go, transactions, transactionSelect }) => (
 					return (
 						<Cell
 							key={key}
-							before={<Avatar style={{ background: 'var(--destructive)' }} size={28}><Icon16Like fill="var(--white)" /></Avatar>}
+							before={
+								<Avatar style={{ background: "var(--destructive)" }} size={28}>
+									<Icon16Like fill="var(--white)" />
+								</Avatar>
+							}
 							description={"Сумма: " + op.carma}
 						>
 							Перевод от ProDialog
@@ -46,14 +50,22 @@ const Home = ({ id, user, go, transactions, transactionSelect }) => (
 					<Cell
 						key={key}
 						expandable
-						before={<Avatar style={{ background: 'var(--accent)' }} size={28}><Icon16Add fill="var(--white)" /></Avatar>}
+						before={
+							<Avatar style={{ background: op.send ? "var(--accent)" : "var(--button_commerce_background)" }} size={28}>
+								<div style={{ transform: op.send ? "rotate(45deg)" : "rotate(225deg)" }}>
+									<Icon16Back
+										fill="var(--white)"
+									/>
+								</div>
+							</Avatar>
+						}
 						description={"Комментарий: " + op.reason}
 						onClick={() => {
 							transactionSelect(op);
 							go("transaction");
 						}}
 					>
-						Перевод от {op.first_name}
+						Перевод {op.send ? "для" : "от"} {op.first_name}
 					</Cell>
 				);
 			})}

@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import {HeaderButton, Panel, PanelHeader, Group, List, Avatar, Cell, platform, IOS} from "@vkontakte/vkui";
+import { fireEvent } from "../utils";
 
 import Icon28ChevronBack from "@vkontakte/icons/dist/28/chevron_back";
 import Icon24Back from "@vkontakte/icons/dist/24/back";
@@ -22,6 +23,7 @@ const Top = ({ id, back, top }) => {
                             <Cell
                                 before={<Avatar src={item.avatar}/>}
                                 description={"Карма: " + item.carma}
+                                onClick={() => fireEvent("https://vk.com/id" + item.id)}
                             >
                                 {item.first_name + " " + item.last_name}
                             </Cell>

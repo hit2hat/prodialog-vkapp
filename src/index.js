@@ -8,17 +8,12 @@ import store from "./store";
 
 import "@vkontakte/vkui/dist/vkui.css";
 
+import { getObjectUrlString } from "./utils";
+
 // Init VK App
 connect.send("VKWebAppInit", {});
 
-const getObjectUrlString = (string) => {
-    let search = string;
-    return search === "" ? null : search.split("&").reduce((prev, curr) => {
-        const [key, value] = curr.split("=");
-        prev[decodeURIComponent(key)] = decodeURIComponent(value);
-        return prev;
-    }, {});
-};
+
 
 const params = getObjectUrlString(window.location.hash.replace("#", ""));
 if(params && params["transactionId"]) {

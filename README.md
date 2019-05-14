@@ -6,6 +6,9 @@
 </p>
 
 # ProDialog VK App
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/15795357695f41cc9e67843335f3fa7e)](https://app.codacy.com/app/hit2hat/prodialog-vkapp?utm_source=github.com&utm_medium=referral&utm_content=hit2hat/prodialog-vkapp&utm_campaign=Badge_Grade_Dashboard)
+
 VK App for ProDialog
 
 ## Technologies

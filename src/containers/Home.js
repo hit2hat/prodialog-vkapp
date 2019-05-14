@@ -15,14 +15,14 @@ const Home = ({ id, user, go, transactions, transactionSelect }) => (
 			<Cell
 				expandable
 				before={user.photo_200 ? <Avatar src={user.photo_200}/> : null}
-				description={user.carma ? "Ваша карма: " + user.carma : null}
+				description={user.carma ? "Карма: " + user.carma : null}
 				onClick={() => go("profile")}
 			>
 				{user.first_name + ' ' +user.last_name}
 			</Cell>
 			<CellButton
 				align="center"
-
+				onClick={() => go("top")}
 			>
 				Топ-15 по карме
 			</CellButton>

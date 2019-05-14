@@ -5,6 +5,7 @@ import { View, ConfigProvider } from '@vkontakte/vkui';
 import Home from "./containers/Home";
 import Profile from "./containers/Profile";
 import Transaction from "./containers/Transaction";
+import Top from "./containers/Top";
 
 const App = ({ activePanel, history, goBack, userLoad }) => {
 	useEffect(() => {
@@ -20,6 +21,7 @@ const App = ({ activePanel, history, goBack, userLoad }) => {
 				<Home id="home"/>
 				<Profile id="profile" />
 				<Transaction id="transaction"/>
+				<Top id="top"/>
 			</View>
 		</ConfigProvider>
 	);

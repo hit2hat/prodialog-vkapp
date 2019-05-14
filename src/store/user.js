@@ -17,6 +17,7 @@ const user = {
             dispatch.user.loaded(result.data);
             dispatch.user.loadProfile(result.data.id);
             dispatch.transactions.load(result.data.id);
+            dispatch.top.load();
         },
         async loadProfile(id) {
             const result = await api.getProfile(id);

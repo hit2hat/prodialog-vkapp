@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { Panel, Cell, Group, Avatar, PanelHeader, CellButton } from '@vkontakte/vkui';
+import { Panel, Cell, Group, Avatar, PanelHeader, List, Spinner } from '@vkontakte/vkui';
 
 import Icon24Back from '@vkontakte/icons/dist/24/back';
 import Icon16Like from '@vkontakte/icons/dist/16/like';
+
+import Icon24Poll from '@vkontakte/icons/dist/24/poll';
 
 const Home = ({ id, user, go, transactions, transactionSelect }) => (
 	<Panel id={id}>
@@ -20,17 +22,24 @@ const Home = ({ id, user, go, transactions, transactionSelect }) => (
 			>
 				{user.first_name + ' ' +user.last_name}
 			</Cell>
-			<CellButton
-				align="center"
-				onClick={() => go("top")}
-			>
-				Топ-15 по карме
-			</CellButton>
 		</Group>}
+
+		<Group title="Меню">
+			<List>
+				<Cell
+					expandable
+					before={<Icon24Poll/>}
+					onClick={() => go("top")}
+				>
+					Топ 15
+				</Cell>
+			</List>
+		</Group>
+
 		<Group
 			title="История операций"
 		>
-			{transactions && transactions.map((op, key) => {
+			{transactions.length > 0 ? transactions.map((op, key) => {
 				if (op.subuser === "1") {
 					return (
 						<Cell
@@ -68,7 +77,7 @@ const Home = ({ id, user, go, transactions, transactionSelect }) => (
 						Перевод {op.send ? "для" : "от"} {op.first_name}
 					</Cell>
 				);
-			})}
+			}) : <Spinner size="medium" style={{ marginTop: 20, paddingBottom: 20 }} />}
 		</Group>
 	</Panel>
 );

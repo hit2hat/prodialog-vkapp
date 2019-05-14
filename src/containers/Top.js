@@ -13,7 +13,7 @@ const Top = ({ id, back, top }) => {
             <PanelHeader
                 left={<HeaderButton onClick={() => back()}>{osname === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}</HeaderButton>}
             >
-                Топ
+                Рейтинг
             </PanelHeader>
             <Group>
                 <List>

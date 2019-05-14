@@ -29,7 +29,7 @@ const Home = ({ id, user, go, transactions, transactionSelect }) => (
 					before={<Icon24Poll/>}
 					onClick={() => go("top")}
 				>
-					Топ 15
+					Рейтинг
 				</Cell>
 			</List>
 		</Group>

@@ -52,7 +52,7 @@ const Transaction = ({ id, back, transaction }) => {
                 title="Сумма"
             >
                 <div style={{marginLeft: 12, paddingBottom: 15}}>
-                    К вашей карме добавлено <span style={{color: 'green'}}>{transaction.carma}</span>
+                    <span style={{color: 'green'}}>{transaction.carma}</span>
                 </div>
             </Group>
             <Group

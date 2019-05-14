@@ -18,5 +18,5 @@ export const getProfile = (id) => {
 
 export const getTransactionById = (id) => {
     return fetch(endpoint + "getTransaction&id=" + id)
-        .then((result) => result.json())
+        .then((result) => result.json());
 };

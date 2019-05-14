@@ -6,23 +6,9 @@ import Home from "./containers/Home";
 import Profile from "./containers/Profile";
 import Transaction from "./containers/Transaction";
 
-const getObjectUrlString = (string) => {
-	let search = string;
-	return search === "" ? null : search.split("&").reduce((prev, curr) => {
-		const [key, value] = curr.split("=");
-		prev[decodeURIComponent(key)] = decodeURIComponent(value);
-		return prev;
-	}, {});
-};
-
 const App = ({ activePanel, history, goForward, goBack, userLoad, selectSingleTransaction }) => {
 	useEffect(() => {
 		userLoad();
-		const params = getObjectUrlString(window.location.hash.replace("#", ""));
-		if(params && params["transactionId"]) {
-			selectSingleTransaction(params["transactionId"]);
-			goForward("transaction");
-		}
 	}, [userLoad]);
 	return (
 		<ConfigProvider isWebView={true}>

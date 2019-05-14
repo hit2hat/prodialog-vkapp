@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import { Panel, Cell, Group, Avatar, PanelHeader, CellButton } from '@vkontakte/vkui';
 
-import Icon16Back from '@vkontakte/icons/dist/24/back';
+import Icon24Back from '@vkontakte/icons/dist/24/back';
 import Icon16Like from '@vkontakte/icons/dist/16/like';
 
 const Home = ({ id, user, go, transactions, transactionSelect }) => (
@@ -53,7 +53,7 @@ const Home = ({ id, user, go, transactions, transactionSelect }) => (
 						before={
 							<Avatar style={{ background: op.send ? "var(--accent)" : "var(--button_commerce_background)" }} size={28}>
 								<div style={{ transform: op.send ? "rotate(45deg)" : "rotate(225deg)" }}>
-									<Icon16Back
+									<Icon24Back
 										fill="var(--white)"
 									/>
 								</div>

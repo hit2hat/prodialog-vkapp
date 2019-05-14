@@ -7,13 +7,13 @@ import Icon24Back from "@vkontakte/icons/dist/24/back";
 
 const osname = platform();
 
-const Profile = ({ id, back, roles, mute, carma, name, warn }) => {
+const Profile = ({ id, back, roles, mute, carma, warn }) => {
     return (
         <Panel id={id}>
             <PanelHeader
                 left={<HeaderButton onClick={() => back()}>{osname === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}</HeaderButton>}
             >
-                {name}
+                Профиль
             </PanelHeader>
             <Group title="Карма">
                 <div style={{marginLeft: 12, paddingBottom: 15}}>{carma}</div>
@@ -39,8 +39,7 @@ const mapProps = (state) => ({
     roles: state.user.role,
     mute: state.user.mute,
     carma: state.user.carma,
-    warn: state.user.warn,
-    name: state.user.first_name + " " + state.user.last_name
+    warn: state.user.warn
 });
 
 const mapDispatch = ({ navigator: { goBack } }) => ({

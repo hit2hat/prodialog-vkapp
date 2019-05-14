@@ -19,7 +19,12 @@ const Top = ({ id, back, top }) => {
                 <List>
                     {top.map((item) => {
                         return (
-                            <Cell before={<Avatar/>} description={"Карма: " + item.carma}>{item.id}</Cell>
+                            <Cell
+                                before={<Avatar src={item.avatar}/>}
+                                description={"Карма: " + item.carma}
+                            >
+                                {item.first_name + " " + item.last_name}
+                            </Cell>
                         );
                     })}
                 </List>

@@ -32,7 +32,7 @@ const App = ({ activePanel, history, goForward, goBack, userLoad, selectSingleTr
 				onSwipeBack={goBack}
 			>
 				<Home id="home"/>
-				<Profile id="profile" back={goBack} />
+				<Profile id="profile" />
 				<Transaction id="transaction"/>
 			</View>
 		</ConfigProvider>

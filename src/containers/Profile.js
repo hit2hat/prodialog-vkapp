@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import {HeaderButton, Panel, PanelHeader, platform, IOS} from "@vkontakte/vkui";
 
 import Icon28ChevronBack from "@vkontakte/icons/dist/28/chevron_back";
@@ -18,4 +19,12 @@ const Profile = ({ id, back }) => {
     );
 };
 
-export default Profile;
+const mapProps = (state) => ({
+    user: state.user
+});
+
+const mapDispatch = ({ navigator: { goBack } }) => ({
+    back: goBack
+});
+
+export default connect(mapProps, mapDispatch)(Profile);

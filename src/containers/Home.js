@@ -11,13 +11,11 @@ const Home = ({ id, user, go, transactions, transactionSelect }) => (
 	<Panel id={id}>
 		<PanelHeader>ProDialog</PanelHeader>
 		{user &&
-		<Group
-			title="Мой профиль"
-		>
+		<Group title="Мой профиль">
 			<Cell
 				expandable
 				before={user.photo_200 ? <Avatar src={user.photo_200}/> : null}
-				description={user.carma ? "Карма: " + user.carma : null}
+				description={user.carma ? "Карма: " + user.carma : "Карма: ..."}
 				onClick={() => go("profile")}
 			>
 				{user.first_name + ' ' +user.last_name}

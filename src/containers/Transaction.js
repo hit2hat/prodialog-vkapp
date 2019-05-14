@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import VKConnect from "@vkontakte/vkui-connect-promise";
-import {Panel, Group, Avatar, PanelHeader, CellButton, HeaderButton, platform, IOS} from '@vkontakte/vkui';
+import {Panel, Group, Avatar, PanelHeader, CellButton, HeaderButton, platform, IOS} from "@vkontakte/vkui";
 
 import Icon28ChevronBack from "@vkontakte/icons/dist/28/chevron_back";
 import Icon24Back from "@vkontakte/icons/dist/24/back";
@@ -20,12 +20,12 @@ const Transaction = ({ id, back, transaction }) => {
             </PanelHeader>
             <Group>
                 <div style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    flexDirection: 'column',
+                    display: "flex",
+                    alignItems: "center",
+                    flexDirection: "column",
                     padding: 25
                 }}>
-                    <div style={{ textAlign: 'center' }}>
+                    <div style={{ textAlign: "center" }}>
                         <Avatar
                             src={transaction.avatar}
                             size={120}
@@ -35,7 +35,7 @@ const Transaction = ({ id, back, transaction }) => {
                 </div>
                 <CellButton
                     align="center"
-                    style={{borderTop: '5px solid var(--background_page)'}}
+                    style={{borderTop: "5px solid var(--background_page)"}}
                     onClick={() => VKConnect.send("VKWebAppShare", {"link": "https://vk.com/app6982755#transactionId=" + transaction.id})}
                 >
                     Поделиться

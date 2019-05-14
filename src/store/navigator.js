@@ -1,4 +1,4 @@
-import connect from '@vkontakte/vkui-connect-promise';
+import connect from "@vkontakte/vkui-connect-promise";
 
 const homeView = "home";
 
@@ -18,13 +18,13 @@ const navigator = {
     effects: (dispatch) => ({
         goForward(panel, state) {
             if(state.navigator.active === homeView) {
-                connect.send('VKWebAppEnableSwipeBack', {});
+                connect.send("VKWebAppEnableSwipeBack", {});
             }
             dispatch.navigator.go(panel);
         },
         goBack(payload, state) {
             if(state.navigator.history[state.navigator.history.length - 2] === homeView) {
-                connect.send('VKWebAppDisableSwipeBack', {});
+                connect.send("VKWebAppDisableSwipeBack", {});
             }
             dispatch.navigator.back();
         }

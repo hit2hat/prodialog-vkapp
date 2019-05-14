@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { View, ConfigProvider } from '@vkontakte/vkui';
+import { View, ConfigProvider } from "@vkontakte/vkui";
 
 import Home from "./containers/Home";
 import Profile from "./containers/Profile";

@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 import { connect } from "react-redux";
-import { Panel, Cell, Group, Avatar, PanelHeader, List, Spinner } from '@vkontakte/vkui';
+import { Panel, Cell, Group, Avatar, PanelHeader, List, Spinner } from "@vkontakte/vkui";
 
-import Icon24Back from '@vkontakte/icons/dist/24/back';
-import Icon16Gift from '@vkontakte/icons/dist/16/gift';
+import Icon24Back from "@vkontakte/icons/dist/24/back";
+import Icon16Gift from "@vkontakte/icons/dist/16/gift";
 
-import Icon24Poll from '@vkontakte/icons/dist/24/poll';
+import Icon24Poll from "@vkontakte/icons/dist/24/poll";
 
 const Home = ({ id, user, go, transactions, transactionSelect }) => (
 	<Panel id={id}>
@@ -18,7 +18,7 @@ const Home = ({ id, user, go, transactions, transactionSelect }) => (
 				description={user.carma ? "Карма: " + user.carma : "Карма: ..."}
 				onClick={() => go("profile")}
 			>
-				{user.first_name + ' ' +user.last_name}
+				{user.first_name + " " +user.last_name}
 			</Cell>
 		</Group>}
 

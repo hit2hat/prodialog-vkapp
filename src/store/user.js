@@ -1,5 +1,5 @@
 import connect from "@vkontakte/vkui-connect-promise";
-import * as api from '../api';
+import * as api from "../api";
 
 const user = {
     state: {},

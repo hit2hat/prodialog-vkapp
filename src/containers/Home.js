@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Panel, Cell, Group, Avatar, PanelHeader, List, Spinner } from '@vkontakte/vkui';
 
 import Icon24Back from '@vkontakte/icons/dist/24/back';
-import Icon16Like from '@vkontakte/icons/dist/16/like';
+import Icon16Gift from '@vkontakte/icons/dist/16/gift';
 
 import Icon24Poll from '@vkontakte/icons/dist/24/poll';
 
@@ -43,8 +43,8 @@ const Home = ({ id, user, go, transactions, transactionSelect }) => (
 						<Cell
 							key={key}
 							before={
-								<Avatar style={{ background: "var(--destructive)" }} size={28}>
-									<Icon16Like fill="var(--white)" />
+								<Avatar style={{ background: "var(--text_primary)" }} size={28}>
+									<Icon16Gift fill="var(--white)" />
 								</Avatar>
 							}
 							description={"Сумма: " + op.carma}
@@ -58,7 +58,7 @@ const Home = ({ id, user, go, transactions, transactionSelect }) => (
 						key={key}
 						expandable
 						before={
-							<Avatar style={{ background: op.send ? "var(--accent)" : "var(--button_commerce_background)" }} size={28}>
+							<Avatar style={{ background: op.send ? "var(--accent)" : op.type === "+" ? "var(--button_commerce_background)" : "var(--destructive)" }} size={28}>
 								<div style={{ transform: op.send ? "rotate(45deg)" : "rotate(225deg)" }}>
 									<Icon24Back
 										fill="var(--white)"

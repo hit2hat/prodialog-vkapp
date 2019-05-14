@@ -1,4 +1,4 @@
-workflow "New workflow" {
+workflow "CI/CD" {
   on = "push"
   resolves = ["VK Notify"]
 }

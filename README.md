@@ -12,6 +12,8 @@ VK App for ProDialog
 *   React
 *   Redux
 *   Rematch
+*   VK UI
+*   VK Connect / VK Connect Promise
 
 ## How to run staging?
 *   Clone repo

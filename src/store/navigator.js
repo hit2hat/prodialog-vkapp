@@ -9,10 +9,10 @@ const navigator = {
     },
     reducers: {
         go(state, payload) {
-            return {active: payload, history: [...state.history, payload]}
+            return {active: payload, history: [...state.history, payload]};
         },
         back(state) {
-            return {active: state.history[state.history.length - 2], history: state.history.slice(0, state.history.length - 1)}
+            return {active: state.history[state.history.length - 2], history: state.history.slice(0, state.history.length - 1)};
         }
     },
     effects: (dispatch) => ({

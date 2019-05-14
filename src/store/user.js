@@ -5,7 +5,7 @@ const user = {
     state: {},
     reducers: {
         loaded(state, payload) {
-            return payload
+            return payload;
         },
         update(state, payload) {
             return {...state, ...payload};

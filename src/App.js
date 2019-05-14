@@ -6,7 +6,7 @@ import Home from "./containers/Home";
 import Profile from "./containers/Profile";
 import Transaction from "./containers/Transaction";
 
-const App = ({ activePanel, history, goForward, goBack, userLoad, selectSingleTransaction }) => {
+const App = ({ activePanel, history, goBack, userLoad }) => {
 	useEffect(() => {
 		userLoad();
 	}, [userLoad]);
@@ -30,11 +30,9 @@ const mapProps = (state) => ({
 	history: state.navigator.history
 });
 
-const mapDispatch = ({ navigator: { goForward, goBack }, user, transactions: { selectSingleTransaction } }) => ({
-	goForward,
+const mapDispatch = ({ navigator: { goBack }, user }) => ({
 	goBack,
-	userLoad: user.load,
-	selectSingleTransaction
+	userLoad: user.load
 });
 
 export default connect(mapProps, mapDispatch)(App);

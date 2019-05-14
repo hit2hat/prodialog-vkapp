@@ -1,7 +1,8 @@
-<img src="./docs/1.png" alt="1 Screen">
-<img src="./docs/2.png" alt="2 Screen">
-<img src="./docs/3.png" alt="3 Screen">
-
+<p>
+<img src="./docs/1.png" width="200" height="350" alt="1 Screen">
+<img src="./docs/2.png" width="200" height="350" alt="2 Screen">
+<img src="./docs/3.png" width="200" height="350" alt="3 Screen">
+</p>
 
 # ProDialog VK App
 VK App for ProDialog

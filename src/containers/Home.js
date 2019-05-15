@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { Panel, Cell, Group, Avatar, PanelHeader, List, Spinner, PullToRefresh } from "@vkontakte/vkui";
+import { Panel, Cell, Group, Avatar, PanelHeader, List, Spinner, PullToRefresh, HeaderButton, Tooltip } from "@vkontakte/vkui";
 import Counter from '@vkontakte/vkui/dist/components/Counter/Counter';
 
 import Icon24Back from "@vkontakte/icons/dist/24/back";
 import Icon16Gift from "@vkontakte/icons/dist/16/gift";
-
+import Icon24Discussions from '@vkontakte/icons/dist/24/discussions';
 import Icon24Poll from "@vkontakte/icons/dist/24/poll";
+
+import { fireEvent } from "../utils";
 
 const Home = ({ id, user, go, transactions, transactionSelect, resetTransactions, loadUser, topPlace }) => {
 	const [loading, setLoading] = useState(false);
+	const [discussionLinkTooltip, setDiscussionLinkTooltip] = useState(false);
 
 	const refresh = async () => {
 		setLoading(true);
@@ -18,9 +21,29 @@ const Home = ({ id, user, go, transactions, transactionSelect, resetTransactions
 		setLoading(false);
 	};
 
+	useEffect(() => {
+		setTimeout(() => setDiscussionLinkTooltip(true), 500); // Bad fix
+	}, []);
+
 	return (
 		<Panel id={id}>
-			<PanelHeader>ProDialog</PanelHeader>
+			<PanelHeader
+				left={
+					<Tooltip
+						text="Нажмите, чтобы открыть нашу беседу"
+						isShown={discussionLinkTooltip}
+						onClose={() => setDiscussionLinkTooltip(false)}
+						offsetX={5}
+						offsetY={5}
+					>
+						<HeaderButton onClick={() => fireEvent("https://vk.me/join/AJQ1dxiivA8PKJX4/88YYsRJ")}>
+							<Icon24Discussions/>
+						</HeaderButton>
+					</Tooltip>
+				}
+			>
+				ProDialog
+			</PanelHeader>
 			<PullToRefresh
 				onRefresh={refresh}
 				isFetching={loading}

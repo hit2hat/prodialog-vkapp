@@ -1,9 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Panel, PanelHeader } from "@vkontakte/vkui";
+import { Panel, PanelHeader, Div, Group, List, Cell, Avatar } from "@vkontakte/vkui";
 import PanelHeaderBack from '@vkontakte/vkui/dist/components/PanelHeaderBack/PanelHeaderBack';
 
-// import { fireEvent } from "../utils";
+import Icon24Bug from '@vkontakte/icons/dist/24/bug';
+import Icon24Help from '@vkontakte/icons/dist/24/help';
+
+import { fireEvent } from "../utils";
 
 const About = ({ id, back }) => {
     return (
@@ -13,6 +16,74 @@ const About = ({ id, back }) => {
             >
                 О сервисе
             </PanelHeader>
+            <Group style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "25px 50px",
+                textAlign: "center"
+            }}>
+                <Div>
+                    <img src={require("../assets/logo.svg")} alt="" style={{
+                        width: "100%",
+                        boxShadow: "0 0 25px #C165DD",
+                        borderRadius: 35,
+                        background: "#C165DD"
+                    }}/>
+                    <h3 style={{ margin: 0, padding: 0, paddingTop: 25 }}>ProDialog App</h3>
+                    <h4 style={{ margin: 0, padding: 0, paddingTop: 5, color: 'rgba(0, 0, 0, .5)'}}>
+                        Версия: {process.env.REACT_APP_VERSION ? process.env.REACT_APP_VERSION.slice(0, 10) : "untagged"}
+                    </h4>
+                </Div>
+            </Group>
+            <Group>
+                <Div>
+                    Классное описание, которое мы еще не придумали
+                </Div>
+            </Group>
+            <Group title="Разработчики">
+                <List>
+                    <Cell
+                        onClick={() => fireEvent("https://vk.me/virxs")}
+                        description="Идея. Бек на нем"
+                        before={<Avatar src="https://sun1-86.userapi.com/c849416/v849416103/f029a/hWjYns4DKcw.jpg?ava=1" />}
+                    >
+                        Дмитрий Гаруськин
+                    </Cell>
+                    <Cell
+                        onClick={() => fireEvent("https://vk.me/hit2hat")}
+                        description="Пасан фронт кодит"
+                        before={<Avatar src="https://sun1-23.userapi.com/c850632/v850632751/1099c4/qw3BsBsm7OU.jpg?ava=1" />}
+                    >
+                        Степан Новожилов
+                    </Cell>
+                </List>
+            </Group>
+            <Group title="Полезные ссылки">
+                <List>
+                    <Cell
+                        expandable
+                        onClick={() => fireEvent("https://vk.com/prodialog")}
+                        before={<Icon24Help/>}
+                    >
+                        Официальная группа
+                    </Cell>
+                    <Cell
+                        expandable
+                        onClick={() => fireEvent("https://vk.me/prodialog")}
+                        before={<Icon24Help/>}
+                    >
+                        Предложить идею
+                    </Cell>
+                    <Cell
+                        expandable
+                        onClick={() => fireEvent("https://vk.me/hit2hat")}
+                        before={<Icon24Bug/>}
+                    >
+                        Сообщить о баге
+                    </Cell>
+                </List>
+            </Group>
         </Panel>
     );
 };

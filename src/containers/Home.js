@@ -7,6 +7,7 @@ import Icon24Back from "@vkontakte/icons/dist/24/back";
 import Icon16Gift from "@vkontakte/icons/dist/16/gift";
 import Icon24Discussions from '@vkontakte/icons/dist/24/discussions';
 import Icon24Poll from "@vkontakte/icons/dist/24/poll";
+import Icon24Info from '@vkontakte/icons/dist/24/info';
 
 import { fireEvent } from "../utils";
 
@@ -22,7 +23,7 @@ const Home = ({ id, user, go, transactions, transactionSelect, resetTransactions
 	};
 
 	useEffect(() => {
-		setTimeout(() => setDiscussionLinkTooltip(true), 500); // Bad fix
+		setTimeout(() => setDiscussionLinkTooltip(false), 500); // Bad fix
 	}, []);
 
 	return (
@@ -69,6 +70,13 @@ const Home = ({ id, user, go, transactions, transactionSelect, resetTransactions
 							onClick={() => go("top")}
 						>
 							Рейтинг
+						</Cell>
+						<Cell
+							expandable
+							before={<Icon24Info/>}
+							onClick={() => go("about")}
+						>
+							О сервисе
 						</Cell>
 					</List>
 				</Group>

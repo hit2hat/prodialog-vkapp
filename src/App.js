@@ -6,6 +6,7 @@ import Home from "./containers/Home";
 import Profile from "./containers/Profile";
 import Transaction from "./containers/Transaction";
 import Top from "./containers/Top";
+import About from "./containers/About";
 
 const App = ({ activePanel, history, goBack, userLoad }) => {
 	useEffect(() => {
@@ -22,6 +23,7 @@ const App = ({ activePanel, history, goBack, userLoad }) => {
 				<Profile id="profile" />
 				<Transaction id="transaction"/>
 				<Top id="top"/>
+				<About id="about"/>
 			</View>
 		</ConfigProvider>
 	);

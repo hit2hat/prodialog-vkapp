@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Panel, Cell, Group, Avatar, PanelHeader, List, Spinner, PullToRefresh } from "@vkontakte/vkui";
+import Counter from '@vkontakte/vkui/dist/components/Counter/Counter';
 
 import Icon24Back from "@vkontakte/icons/dist/24/back";
 import Icon16Gift from "@vkontakte/icons/dist/16/gift";
@@ -41,7 +42,7 @@ const Home = ({ id, user, go, transactions, transactionSelect, resetTransactions
 						<Cell
 							expandable
 							before={<Icon24Poll/>}
-							indicator={topPlace !== 0 ? "Ваше место: " + topPlace : null}
+							indicator={topPlace !== 0 ? <Counter type="primary"><span style={{padding: '0 5px'}}>Ваше место: {topPlace}</span></Counter> : null}
 							onClick={() => go("top")}
 						>
 							Рейтинг

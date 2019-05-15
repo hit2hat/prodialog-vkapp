@@ -1,12 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import VKConnect from "@vkontakte/vkui-connect-promise";
-import {Panel, Group, Avatar, PanelHeader, CellButton, HeaderButton, platform, IOS} from "@vkontakte/vkui";
-
-import Icon28ChevronBack from "@vkontakte/icons/dist/28/chevron_back";
-import Icon24Back from "@vkontakte/icons/dist/24/back";
-
-const osname = platform();
+import { Panel, Group, Avatar, PanelHeader, CellButton } from "@vkontakte/vkui";
+import PanelHeaderBack from '@vkontakte/vkui/dist/components/PanelHeaderBack/PanelHeaderBack';
 
 const Transaction = ({ id, back, transaction }) => {
     let date = new Date();
@@ -14,7 +10,7 @@ const Transaction = ({ id, back, transaction }) => {
     return (
         <Panel id={id}>
             <PanelHeader
-                left={<HeaderButton onClick={() => back()}>{osname === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}</HeaderButton>}
+                left={<PanelHeaderBack onClick={back} />}
             >
                 Транзакция
             </PanelHeader>

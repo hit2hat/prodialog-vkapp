@@ -1,17 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import {HeaderButton, Panel, PanelHeader, platform, Group, Cell, List, IOS} from "@vkontakte/vkui";
-
-import Icon28ChevronBack from "@vkontakte/icons/dist/28/chevron_back";
-import Icon24Back from "@vkontakte/icons/dist/24/back";
-
-const osname = platform();
+import { Panel, PanelHeader, Group, Cell, List } from "@vkontakte/vkui";
+import PanelHeaderBack from '@vkontakte/vkui/dist/components/PanelHeaderBack/PanelHeaderBack';
 
 const Profile = ({ id, back, roles, mute, carma, warn }) => {
     return (
         <Panel id={id}>
             <PanelHeader
-                left={<HeaderButton onClick={() => back()}>{osname === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}</HeaderButton>}
+                left={<PanelHeaderBack onClick={back} />}
             >
                 Профиль
             </PanelHeader>

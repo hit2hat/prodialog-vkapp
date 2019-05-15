@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import {HeaderButton, Panel, PanelHeader, Group, List, Avatar, Cell} from "@vkontakte/vkui";
+import { Panel, PanelHeader } from "@vkontakte/vkui";
 import PanelHeaderBack from '@vkontakte/vkui/dist/components/PanelHeaderBack/PanelHeaderBack';
 
-import { fireEvent } from "../utils";
+// import { fireEvent } from "../utils";
 
 const About = ({ id, back }) => {
     return (

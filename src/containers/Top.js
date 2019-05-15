@@ -1,18 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
-import {HeaderButton, Panel, PanelHeader, Group, List, Avatar, Cell, platform, IOS} from "@vkontakte/vkui";
+import { Panel, PanelHeader, Group, List, Avatar, Cell } from "@vkontakte/vkui";
+import PanelHeaderBack from '@vkontakte/vkui/dist/components/PanelHeaderBack/PanelHeaderBack';
+
 import { fireEvent } from "../utils";
-
-import Icon28ChevronBack from "@vkontakte/icons/dist/28/chevron_back";
-import Icon24Back from "@vkontakte/icons/dist/24/back";
-
-const osname = platform();
 
 const Top = ({ id, back, top }) => {
     return (
         <Panel id={id}>
             <PanelHeader
-                left={<HeaderButton onClick={() => back()}>{osname === IOS ? <Icon28ChevronBack/> : <Icon24Back/>}</HeaderButton>}
+                left={<PanelHeaderBack onClick={back} />}
             >
                 Рейтинг
             </PanelHeader>

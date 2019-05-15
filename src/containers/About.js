@@ -5,6 +5,7 @@ import PanelHeaderBack from '@vkontakte/vkui/dist/components/PanelHeaderBack/Pan
 
 import Icon24Bug from '@vkontakte/icons/dist/24/bug';
 import Icon24Help from '@vkontakte/icons/dist/24/help';
+import Icon24Globe from '@vkontakte/icons/dist/24/globe';
 
 import { fireEvent } from "../utils";
 
@@ -64,7 +65,7 @@ const About = ({ id, back }) => {
                     <Cell
                         expandable
                         onClick={() => fireEvent("https://vk.com/prodialog")}
-                        before={<Icon24Help/>}
+                        before={<Icon24Globe/>}
                     >
                         Официальная группа
                     </Cell>

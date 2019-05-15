@@ -7,7 +7,7 @@ import Icon16Gift from "@vkontakte/icons/dist/16/gift";
 
 import Icon24Poll from "@vkontakte/icons/dist/24/poll";
 
-const Home = ({ id, user, go, transactions, transactionSelect, resetTransactions, loadUser }) => {
+const Home = ({ id, user, go, transactions, transactionSelect, resetTransactions, loadUser, topPlace }) => {
 	const [loading, setLoading] = useState(false);
 
 	const refresh = async () => {
@@ -41,6 +41,7 @@ const Home = ({ id, user, go, transactions, transactionSelect, resetTransactions
 						<Cell
 							expandable
 							before={<Icon24Poll/>}
+							indicator={topPlace !== 0 ? "Ваше место: " + topPlace : null}
 							onClick={() => go("top")}
 						>
 							Рейтинг
@@ -98,7 +99,8 @@ const Home = ({ id, user, go, transactions, transactionSelect, resetTransactions
 
 const mapProps = (state) => ({
 	user: state.user,
-	transactions: state.transactions.list
+	transactions: state.transactions.list,
+	topPlace: state.top.findIndex(x => x.id === state.user.id) + 1
 });
 
 const mapDispatch = ({ navigator: { goForward }, transactions: { select, reset }, user: { load } }) => ({

@@ -33,7 +33,7 @@ const About = ({ id, back }) => {
                     }}/>
                     <h3 style={{ margin: 0, padding: 0, paddingTop: 25 }}>ProDialog App</h3>
                     <h4 style={{ margin: 0, padding: 0, paddingTop: 5, color: 'rgba(0, 0, 0, .5)'}}>
-                        Версия: {process.env.REACT_APP_VERSION ? process.env.REACT_APP_VERSION.slice(0, 10) : "untagged"}
+                        Версия: {process.env.REACT_APP_VERSION ? process.env.REACT_APP_VERSION.slice(0, 7) : "untagged"}
                     </h4>
                 </Div>
             </Group>

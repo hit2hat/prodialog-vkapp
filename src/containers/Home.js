@@ -11,7 +11,7 @@ import Icon24Info from '@vkontakte/icons/dist/24/info';
 
 import { fireEvent } from "../utils";
 
-const Home = ({ id, user, go, transactions, transactionSelect, resetTransactions, loadUser, topPlace, openProfile }) => {
+const Home = ({ id, user, go, transactions, cloud, transactionSelect, resetTransactions, loadUser, topPlace, openProfile, cloudUpdate }) => {
 	const [loading, setLoading] = useState(false);
 	const [discussionLinkTooltip, setDiscussionLinkTooltip] = useState(false);
 
@@ -23,8 +23,8 @@ const Home = ({ id, user, go, transactions, transactionSelect, resetTransactions
 	};
 
 	useEffect(() => {
-		setTimeout(() => setDiscussionLinkTooltip(false), 500); // Bad fix
-	}, []);
+		setDiscussionLinkTooltip(cloud.discussion_tooltip ? !cloud.discussion_tooltip : false);
+	}, [cloud.discussion_tooltip]);
 
 	return (
 		<Panel id={id}>
@@ -33,7 +33,10 @@ const Home = ({ id, user, go, transactions, transactionSelect, resetTransactions
 					<Tooltip
 						text="Нажмите, чтобы открыть нашу беседу"
 						isShown={discussionLinkTooltip}
-						onClose={() => setDiscussionLinkTooltip(false)}
+						onClose={() => {
+							setDiscussionLinkTooltip(false);
+							cloudUpdate({ param: "discussion_tooltip", value: true});
+						}}
 						offsetX={5}
 						offsetY={5}
 					>
@@ -132,15 +135,17 @@ const Home = ({ id, user, go, transactions, transactionSelect, resetTransactions
 const mapProps = (state) => ({
 	user: state.user.vk,
 	transactions: state.transactions.list,
-	topPlace: state.top.findIndex(x => x.id === state.user.vk.id) + 1
+	topPlace: state.top.findIndex(x => x.id === state.user.vk.id) + 1,
+	cloud: state.cloud
 });
 
-const mapDispatch = ({ navigator: { goForward }, transactions: { select, reset }, user: { load, openProfile } }) => ({
+const mapDispatch = ({ navigator: { goForward }, transactions: { select, reset }, user: { load, openProfile }, cloud: { changeParam } }) => ({
 	go: goForward,
 	transactionSelect: select,
 	resetTransactions: reset,
 	loadUser: load,
-	openProfile
+	openProfile,
+	cloudUpdate: changeParam
 });
 
 export default connect(mapProps, mapDispatch)(Home);

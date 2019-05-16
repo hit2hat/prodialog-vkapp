@@ -4,12 +4,14 @@ import navigator from "./navigator";
 import user from "./user";
 import transactions from "./transactions";
 import top from "./top";
+import cloud from "./cloud";
 
 const models = {
     navigator,
     user,
     transactions,
-    top
+    top,
+    cloud
 };
 
 const store = init({

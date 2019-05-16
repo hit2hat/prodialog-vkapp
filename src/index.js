@@ -12,6 +12,7 @@ import { getObjectUrlString } from "./utils";
 
 // Init VK App
 connect.send("VKWebAppInit", {});
+store.dispatch.cloud.initialize(6982755);
 
 
 const params = getObjectUrlString(window.location.hash.replace("#", ""));

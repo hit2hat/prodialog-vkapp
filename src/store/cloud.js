@@ -45,13 +45,10 @@ const cloud = {
                 }
             })
                 .then((result) => {
-                    dispatch.cloud.update(dispatch.cloud.update(result.data.response.reduce((a, x) => {a[x.key] = x.value; return a}, [])));
-                })
-                .catch((err) => {
-                    dispatch.cloud.update({
-                        pidor: err.data.error_type
-                    })
-                })
+                    dispatch.cloud.update(dispatch.cloud.update(
+                        result.data.response.reduce((a, x) => {a[x.key] = x.value; return a}, {"loaded": true})
+                    ));
+                });
         }
     })
 };

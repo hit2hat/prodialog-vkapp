@@ -23,8 +23,8 @@ const Home = ({ id, user, go, transactions, cloud, transactionSelect, resetTrans
 	};
 
 	useEffect(() => {
-		setDiscussionLinkTooltip(cloud.discussion_tooltip ? !cloud.discussion_tooltip : false);
-	}, [cloud.discussion_tooltip]);
+		setDiscussionLinkTooltip(cloud.loaded ? !cloud.discussion_tooltip : false);
+	}, [cloud.discussion_tooltip, cloud.loaded]);
 
 	return (
 		<Panel id={id}>

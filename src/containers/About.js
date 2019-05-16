@@ -86,7 +86,7 @@ const About = ({ id, back }) => {
                     <Cell
                         expandable
                         onClick={() => fireEvent("https://vk.com/id182625786")}
-                        before={<Icon24Bug fill="#ff1515" />}
+                        before={<Icon24Bug fill="#4bb34b" />}
                     >
                         <span style={{ color: "#4bb34b" }}>Сообщить о баге</span>
                     </Cell>

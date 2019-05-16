@@ -63,7 +63,7 @@ const About = ({ id, back }) => {
                         description="Какой-то левый чувак"
                         before={<Avatar src="https://vk.com/images/camera_200.png?ava=1" />}
                     >
-                        Степан Новожилов
+                        Сергей Бондаренко
                     </Cell>
                 </List>
             </Group>

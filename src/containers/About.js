@@ -21,7 +21,7 @@ const About = ({ id, back }) => {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                padding: "25px 50px",
+                padding: "25px 100px",
                 textAlign: "center"
             }}>
                 <Div>

@@ -74,14 +74,14 @@ const About = ({ id, back }) => {
                         onClick={() => fireEvent("https://vk.com/prodialog")}
                         before={<Icon24Globe/>}
                     >
-                      Официальная группа
+			Официальная группа
                     </Cell>
                     <Cell
                         expandable
-                        onClick={() => fireEvent("https://vk.me/prodialog")}
+                        onClick={() => fireEvent("https://vk.com/prodialog?w=wall-181623671_58%2Fall")}
                         before={<Icon24Help/>}
                     >
-                       Предложить идею
+                        Предложить идею
                     </Cell>
                     <Cell
                         expandable

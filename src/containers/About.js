@@ -58,6 +58,13 @@ const About = ({ id, back }) => {
                     >
                         Степан Новожилов
                     </Cell>
+					   <Cell
+                        onClick={() => fireEvent("https://vk.com/kosrotoff")}
+                        description="Какой-то левый чувак"
+                        before={<Avatar src="https://vk.com/images/camera_200.png?ava=1" />}
+                    >
+                        Степан Новожилов
+                    </Cell>
                 </List>
             </Group>
             <Group title="Полезные ссылки">

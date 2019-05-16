@@ -72,23 +72,23 @@ const About = ({ id, back }) => {
                     <Cell
                         expandable
                         onClick={() => fireEvent("https://vk.com/prodialog")}
-                        before={<Icon24Globe fill="#00bfff" />}
+                        before={<Icon24Globe/>}
                     >
-                       <span style={{ color: "#00bfff" }}>Официальная группа</span>
+                      Официальная группа
                     </Cell>
                     <Cell
                         expandable
                         onClick={() => fireEvent("https://vk.me/prodialog")}
-                        before={<Icon24Help fill="#00ff00" />}
+                        before={<Icon24Help/>}
                     >
-                        <span style={{ color: "#00ff00" }}>Предложить идею</span>
+                       Предложить идею
                     </Cell>
                     <Cell
                         expandable
                         onClick={() => fireEvent("https://vk.com/id182625786")}
-                        before={<Icon24Bug fill="#ff0000" />}
+                        before={<Icon24Bug fill="#ff1515" />}
                     >
-                        <span style={{ color: "#ff0000" }}>Сообщить о баге</span>
+                        <span style={{ color: "#ff1515" }}>Сообщить о баге</span>
                     </Cell>
                 </List>
             </Group>

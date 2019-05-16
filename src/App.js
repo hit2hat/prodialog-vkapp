@@ -8,7 +8,7 @@ import Transaction from "./containers/Transaction";
 import Top from "./containers/Top";
 import About from "./containers/About";
 
-const App = ({ activePanel, history, goBack, userLoad }) => {
+const App = ({ activePanel, history, goBack, userLoad, popout }) => {
 	useEffect(() => {
 		userLoad();
 	}, [userLoad]);
@@ -18,11 +18,12 @@ const App = ({ activePanel, history, goBack, userLoad }) => {
 				activePanel={activePanel}
 				history={history}
 				onSwipeBack={goBack}
+				popout={popout}
 			>
 				<Home id="home"/>
+				<Top id="top"/>
 				<Profile id="profile" />
 				<Transaction id="transaction"/>
-				<Top id="top"/>
 				<About id="about"/>
 			</View>
 		</ConfigProvider>
@@ -31,7 +32,8 @@ const App = ({ activePanel, history, goBack, userLoad }) => {
 
 const mapProps = (state) => ({
 	activePanel: state.navigator.active,
-	history: state.navigator.history
+	history: state.navigator.history,
+	popout: state.navigator.popout
 });
 
 const mapDispatch = ({ navigator: { goBack }, user }) => ({

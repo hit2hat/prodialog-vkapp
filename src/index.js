@@ -14,7 +14,6 @@ import { getObjectUrlString } from "./utils";
 connect.send("VKWebAppInit", {});
 
 
-
 const params = getObjectUrlString(window.location.hash.replace("#", ""));
 if(params && params["transactionId"]) {
     store.dispatch.transactions.selectSingleTransaction(params["transactionId"]);

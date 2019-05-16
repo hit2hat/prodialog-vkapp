@@ -11,7 +11,7 @@ import Icon24Info from '@vkontakte/icons/dist/24/info';
 
 import { fireEvent } from "../utils";
 
-const Home = ({ id, user, go, transactions, transactionSelect, resetTransactions, loadUser, topPlace }) => {
+const Home = ({ id, user, go, transactions, transactionSelect, resetTransactions, loadUser, topPlace, openProfile }) => {
 	const [loading, setLoading] = useState(false);
 	const [discussionLinkTooltip, setDiscussionLinkTooltip] = useState(false);
 
@@ -55,7 +55,7 @@ const Home = ({ id, user, go, transactions, transactionSelect, resetTransactions
 						expandable
 						before={user.photo_200 ? <Avatar src={user.photo_200}/> : null}
 						description={user.carma ? "Карма: " + user.carma : "Карма: ..."}
-						onClick={() => go("profile")}
+						onClick={() => openProfile(user.id)}
 					>
 						{user.first_name + " " +user.last_name}
 					</Cell>
@@ -130,16 +130,17 @@ const Home = ({ id, user, go, transactions, transactionSelect, resetTransactions
 };
 
 const mapProps = (state) => ({
-	user: state.user,
+	user: state.user.vk,
 	transactions: state.transactions.list,
-	topPlace: state.top.findIndex(x => x.id === state.user.id) + 1
+	topPlace: state.top.findIndex(x => x.id === state.user.vk.id) + 1
 });
 
-const mapDispatch = ({ navigator: { goForward }, transactions: { select, reset }, user: { load } }) => ({
+const mapDispatch = ({ navigator: { goForward }, transactions: { select, reset }, user: { load, openProfile } }) => ({
 	go: goForward,
 	transactionSelect: select,
 	resetTransactions: reset,
-	loadUser: load
+	loadUser: load,
+	openProfile
 });
 
 export default connect(mapProps, mapDispatch)(Home);

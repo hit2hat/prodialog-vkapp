@@ -5,14 +5,18 @@ const homeView = "home";
 const navigator = {
     state: {
         active: homeView,
-        history: [homeView]
+        history: [homeView],
+        popout: null
     },
     reducers: {
         go(state, payload) {
-            return {active: payload, history: [...state.history, payload]};
+            return {active: payload, history: [...state.history, payload], popout: null};
         },
         back(state) {
-            return {active: state.history[state.history.length - 2], history: state.history.slice(0, state.history.length - 1)};
+            return {active: state.history[state.history.length - 2], history: state.history.slice(0, state.history.length - 1), popout: null};
+        },
+        setPopout(state, payload) {
+            return {...state, popout: payload};
         }
     },
     effects: (dispatch) => ({

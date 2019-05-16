@@ -1,9 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Panel, PanelHeader, Group, Cell, List } from "@vkontakte/vkui";
+import { Panel, PanelHeader, Group, Cell, List, InfoRow, Button } from "@vkontakte/vkui";
 import PanelHeaderBack from '@vkontakte/vkui/dist/components/PanelHeaderBack/PanelHeaderBack';
 
-const Profile = ({ id, back, roles, mute, carma, warn }) => {
+import { fireEvent } from "../utils";
+
+const Profile = ({ id, back, user, me }) => {
     return (
         <Panel id={id}>
             <PanelHeader
@@ -11,19 +13,39 @@ const Profile = ({ id, back, roles, mute, carma, warn }) => {
             >
                 Профиль
             </PanelHeader>
-            <Group title="Карма">
-                <div style={{marginLeft: 12, paddingBottom: 15}}>{carma}</div>
+
+            <Group>
+                <Cell
+                    description="Костыль"
+                    asideContent={
+                        !me ? <Button onClick={() => fireEvent("https://vk.com/id" + user.id)}>Профиль ВКонтакте</Button> : null
+                    }
+                    size="l"
+                >
+                    vk.me/id{user.id}
+                </Cell>
             </Group>
-            <Group title="Мут">
-                <div style={{marginLeft: 12, paddingBottom: 15}}>{mute ? "Есть" : "Нет"}</div>
+
+            <Group title="Информация о пользователе">
+                <List>
+                    <Cell>
+                        <InfoRow title="Карма">
+                            {user.carma}
+                        </InfoRow>
+                    </Cell>
+                    <Cell>
+                        <InfoRow title="Мут">{user.mute ? "Есть" : "Нет"}</InfoRow>
+                    </Cell>
+                    <Cell>
+                        <InfoRow title="Предупреждения">{user.warn ? "Есть" : "Нет"}</InfoRow>
+                    </Cell>
+                </List>
             </Group>
-            <Group title="Предупреждения">
-                <div style={{marginLeft: 12, paddingBottom: 15}}>{warn ? "Есть" : "Нет"}</div>
-            </Group>
+
             <Group
-                title="Роли"
+                title="Специализация"
             >
-                {roles ? <List>{roles.map((role) => <Cell>{role}</Cell>)}</List>
+                {user.role ? <List>{user.role.map((role) => <Cell>{role}</Cell>)}</List>
                     : <div style={{marginLeft: 12, paddingBottom: 15}}>Нет</div>
                 }
             </Group>
@@ -32,10 +54,8 @@ const Profile = ({ id, back, roles, mute, carma, warn }) => {
 };
 
 const mapProps = (state) => ({
-    roles: state.user.role,
-    mute: state.user.mute,
-    carma: state.user.carma,
-    warn: state.user.warn
+    me: state.user.vk.id === state.user.selected.id,
+    user: state.user.selected
 });
 
 const mapDispatch = ({ navigator: { goBack } }) => ({

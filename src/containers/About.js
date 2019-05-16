@@ -78,7 +78,7 @@ const About = ({ id, back }) => {
                     </Cell>
                     <Cell
                         expandable
-                        onClick={() => fireEvent("https://vk.com/prodialog?w=wall-181623671_57%2Fall")}
+                        onClick={() => fireEvent("https://vk.com/prodialog?w=wall-181623671_58%2Fall")}
                         before={<Icon24Help fill="#00CC33" />}
                     >
                         <span style={{ color: "#00CC33" }}>Предложить идею</span>

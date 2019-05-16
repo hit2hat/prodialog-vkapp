@@ -46,9 +46,10 @@ const cloud = {
             })
                 .then((result) => {
                     dispatch.cloud.update(dispatch.cloud.update(
-                        result.data.response.reduce((a, x) => {a[x.key] = x.value; return a}, {"loaded": true})
+                        result.data.response.reduce((a, x) => {a[x.key] = x.value; return a}, { "loaded": true })
                     ));
-                });
+                })
+                .catch(() => dispatch.cloud.update({ "loaded": true }))
         }
     })
 };

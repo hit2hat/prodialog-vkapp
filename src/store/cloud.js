@@ -1,4 +1,5 @@
 import connect from "@vkontakte/vkui-connect-promise";
+import old_connect from "@vkontakte/vkui-connect";
 
 const cloud = {
     state: {},
@@ -9,19 +10,23 @@ const cloud = {
     },
     effects: (dispatch) => ({
         async initialize(app_id) {
-            const access_token = await connect.send("VKWebAppGetAuthToken", {
-                app_id,
-                scope: "user"
-            }).then((result) => result.data.access_token);
-            dispatch.cloud.update({ access_token });
-
-            await connect.send("VKWebAppCallAPIMethod", {
-                "method": "execute.getParamsList",
-                "params": {
-                    "v": "5.95",
-                    "access_token": access_token
+            old_connect.subscribe((action) => {
+                if (action.detail.type === "VKWebAppAccessTokenReceived") {
+                    dispatch.cloud.update({ access_token: action.detail.data.access_token });
+                    connect.send("VKWebAppCallAPIMethod", {
+                        "method": "execute.getParamsList",
+                        "params": {
+                            "v": "5.95",
+                            "access_token": action.detail.data.access_token
+                        }
+                    }).then((result) => dispatch.cloud.loadByKeys(result.data.response));
                 }
-            }).then((result) => dispatch.cloud.loadByKeys(result.data.response));
+            });
+            old_connect.send("VKWebAppInit", {});
+            old_connect.send("VKWebAppGetAuthToken", {
+                app_id: app_id,
+                scope: "user"
+            });
         },
         async changeParam(payload, state) {
             const { param, value } = payload;

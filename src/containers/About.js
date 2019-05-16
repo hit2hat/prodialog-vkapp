@@ -45,21 +45,21 @@ const About = ({ id, back }) => {
             <Group title="Разработчики">
                 <List>
                     <Cell
-                        onClick={() => fireEvent("https://vk.me/virxs")}
-                        description="Идея. Бек на нем"
+                        onClick={() => fireEvent("https://vk.com/id279404198")}
+                        description="Идея. Бек на нём"
                         before={<Avatar src="https://sun1-86.userapi.com/c849416/v849416103/f029a/hWjYns4DKcw.jpg?ava=1" />}
                     >
                         Дмитрий Гаруськин
                     </Cell>
                     <Cell
-                        onClick={() => fireEvent("https://vk.me/hit2hat")}
+                        onClick={() => fireEvent("https://vk.com/id182625786")}
                         description="Пасан фронт кодит"
                         before={<Avatar src="https://sun1-23.userapi.com/c850632/v850632751/1099c4/qw3BsBsm7OU.jpg?ava=1" />}
                     >
                         Степан Новожилов
                     </Cell>
 					   <Cell
-                        onClick={() => fireEvent("https://vk.com/kosrotoff")}
+                        onClick={() => fireEvent("https://vk.com/id113677977")}
                         description="Какой-то левый чувак"
                         before={<Avatar src="https://vk.com/images/camera_200.png?ava=1" />}
                     >
@@ -72,23 +72,23 @@ const About = ({ id, back }) => {
                     <Cell
                         expandable
                         onClick={() => fireEvent("https://vk.com/prodialog")}
-                        before={<Icon24Globe/>}
+                        before={<Icon24Globe fill="#00bfff" />}
                     >
-                        Официальная группа
+                       <span style={{ color: "#00bfff" }}>Официальная группа</span>
                     </Cell>
                     <Cell
                         expandable
                         onClick={() => fireEvent("https://vk.me/prodialog")}
-                        before={<Icon24Help/>}
+                        before={<Icon24Help fill="#00ff00" />}
                     >
-                        Предложить идею
+                        <span style={{ color: "#00ff00" }}>Предложить идею</span>
                     </Cell>
                     <Cell
                         expandable
-                        onClick={() => fireEvent("https://vk.me/hit2hat")}
-                        before={<Icon24Bug fill="#4bb34b" />}
+                        onClick={() => fireEvent("https://vk.com/id182625786")}
+                        before={<Icon24Bug fill="#ff0000" />}
                     >
-                        <span style={{ color: "#4bb34b" }}>Сообщить о баге</span>
+                        <span style={{ color: "#ff0000" }}>Сообщить о баге</span>
                     </Cell>
                 </List>
             </Group>

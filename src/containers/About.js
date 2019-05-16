@@ -88,7 +88,7 @@ const About = ({ id, back }) => {
                         onClick={() => fireEvent("https://vk.com/id182625786")}
                         before={<Icon24Bug fill="#ff1515" />}
                     >
-                        <span style={{ color: "#ff1515" }}>Сообщить о баге</span>
+                        <span style={{ color: "#4bb34b" }}>Сообщить о баге</span>
                     </Cell>
                 </List>
             </Group>

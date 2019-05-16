@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Panel, PanelHeader, Group, Cell, List, InfoRow, Button } from "@vkontakte/vkui";
+import { Panel, PanelHeader, Group, Cell, List, InfoRow, Button, Avatar } from "@vkontakte/vkui";
 import PanelHeaderBack from '@vkontakte/vkui/dist/components/PanelHeaderBack/PanelHeaderBack';
+import Counter from '@vkontakte/vkui/dist/components/Counter/Counter';
 
 import { fireEvent } from "../utils";
 
@@ -41,6 +42,24 @@ const Profile = ({ id, back, user, me }) => {
                     </Cell>
                 </List>
             </Group>
+
+            {user.id === 182625786 ? <Group title="GitHub">
+                <List>
+                    <Cell
+                        expandable
+                        before={<Avatar src="https://avatars3.githubusercontent.com/u/42957391?v=4" />}
+                        description="Junior Web Developer, 17 y.o."
+                        onClick={() => fireEvent("https://github.com/hit2hat")}
+                        size="l"
+                    >
+                        @hit2hat
+                    </Cell>
+                    <Cell indicator={<Counter type="primary">4</Counter>}>Публичные репозитории</Cell>
+                    <Cell indicator={<Counter type="primary">1</Counter>}>Публичные Gists</Cell>
+                    <Cell indicator={<Counter type="primary">3</Counter>}>Подписчики</Cell>
+                    <Cell indicator={<Counter type="primary">1</Counter>}>Подписки</Cell>
+                </List>
+            </Group> : null}
 
             <Group
                 title="Специализация"

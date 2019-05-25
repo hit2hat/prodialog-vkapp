@@ -64,7 +64,7 @@ const Profile = ({ id, back, user, me }) => {
             <Group
                 title="Специализация"
             >
-                {user.role ? <List>{user.role.map((role) => <Cell>{role}</Cell>)}</List>
+                {user.role ? <List>{user.role.map((role, key) => <Cell key={key}>{role}</Cell>)}</List>
                     : <div style={{marginLeft: 12, paddingBottom: 15}}>Нет</div>
                 }
             </Group>

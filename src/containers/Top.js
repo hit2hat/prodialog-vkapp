@@ -13,9 +13,10 @@ const Top = ({ id, back, top, openProfile }) => {
             </PanelHeader>
             <Group>
                 <List>
-                    {top.map((item) => {
+                    {top.map((item, key) => {
                         return (
                             <Cell
+                                key={key}
                                 before={<Avatar src={item.avatar}/>}
                                 description={"Карма: " + item.carma}
                                 onClick={() => openProfile(item.id)}

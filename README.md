@@ -27,4 +27,4 @@ VK App for ProDialog
 
 ## Links
 *   [Official app in VK](https://vk.com/app6982755)
-*   [Developer](https://vk.me/hit2hat)
+*   [Developer](https://vk.me/this.state.user)
